@@ -13,7 +13,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        $owner = Owner::latest()-paginate(10);
+        $owner = Owner::latest()->paginate(10);
         return view('owner.index', compact('owner'));
         //
     }
@@ -23,7 +23,8 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('owner.tambah');
+        
     }
 
     /**
@@ -31,6 +32,17 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
+        $owner = Owner::created([
+            'nama' => $request->nama,
+            'username' => $request->username,
+            'password' => $request->password,
+            'email' => $request->email,
+        ]);
+        if ($owner){
+            return redirect()->route('owner.index')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
+            return redirect()->route('owner.index')->with(['error' => 'Data Gagal Disimpan!']);
+        }
         //
     }
 

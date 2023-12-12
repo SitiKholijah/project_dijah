@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('template/master');
 });
 
-Route::resource('owner', OwnerController::class);
+Route::get('/owner', [OwnerController::class, 'index']);

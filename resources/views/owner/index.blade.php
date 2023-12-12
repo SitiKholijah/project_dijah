@@ -2,14 +2,11 @@
 @section('css')
 <!-- DataTables -->
 
-<link rel="stylesheet" href="{{ url('plugins/datatables-
-bs4/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ url('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 
-<link rel="stylesheet" href="{{ url('plugins/datatables-
-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ url('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 
-<link rel="stylesheet" href="{{ url('plugins/datatables-
-buttons/css/buttons.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ url('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 
 @endsection
 @section('content')
@@ -24,8 +21,7 @@ buttons/css/buttons.bootstrap4.min.css') }}">
     </div>
     <div class="card-body">
 
-        <a href="{{route('owner.create')}}"><button type="submit" class="btn btn-
-primary"><i class="fa fa-plus"></i> Tambah</button></a>
+        <a href="/owner/create/"><button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</button></a>
 
         <table id="example1" class="table table-bordered table-striped">
             <thead>
@@ -58,8 +54,7 @@ primary"><i class="fa fa-plus"></i> Tambah</button></a>
                         </form>
                         &nbsp;
 
-                        <a href="{{ route('owner.edit', $data->id) }}" class="btn btn-
-outline-warning"><i class="fa fa-edit"></i></a>
+                        <a href="{{ route('owner.edit', $data->id) }}" class="btn btn-outline-warning"><i class="fa fa-edit"></i></a>
 
                     </td>
                 </tr>

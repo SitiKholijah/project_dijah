@@ -35,12 +35,12 @@
             </li>
             <li class="sidebar-item">
               <a href="/owner/" class="nav-link">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-layout-dashboard"></i>
-                </span>
-                <span class="hide-menu">Dashboard</span>
-              </a>
+                <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Dashboard</span>
+                </a>
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
@@ -81,15 +81,22 @@
                 <span class="hide-menu">Register</span>
               </a>
             </li>
-          </ul>
-        </nav>
-        <!-- End Sidebar navigation -->
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/owner/" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>
+                </span>
+                <span class="hide-menu">User</span>
+              </a>
+            </li>
+          </ul </nav>
+          <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
     </aside>
     <!--  Sidebar End -->
     <!--  Main wrapper -->
-    @yield('content')
+
     <div class="body-wrapper">
       <!--  Header Start -->
       <header class="app-header">
@@ -137,14 +144,7 @@
         </nav>
       </header>
       <!--  Header End -->
-      <div class="container-fluid">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Sample Page</h5>
-            <p class="mb-0">This is a sample page </p>
-          </div>
-        </div>
-      </div>
+      @yield('content')
     </div>
   </div>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
@@ -153,49 +153,49 @@
   <script src="../assets/js/app.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
   <script>
-    $(".custom-file-input").on("chage", function(){
+    $(".custom-file-input").on("chage", function () {
       var fileName = $(this).val().split("\\").pop();
       $(this).sibilings(".custom-file-label").addClass("selected").html(fileName)
     })
-  @yield('js')
-<!-- Code injected by live-server -->
-<script>
+    @yield('js')
+    <!-- Code injected by live-server -->
+    <script>
 	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
+      if ('WebSocket' in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+          var address = protocol + window.location.host + window.location.pathname + '/ws';
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == 'reload') window.location.reload();
+            else if (msg.data == 'refreshcss') refreshCSS();
+          };
+          if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+            console.log('Live reload enabled.');
+            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+          }
+        })();
 	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+      else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
-	// ]]>
-</script>
+    // ]]>
+  </script>
 </body>
 
 </html>
