@@ -34,6 +34,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
+              <a href="/owner/" class="nav-link">
               <a class="sidebar-link" href="./index.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
@@ -52,7 +53,7 @@
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                <span class="hide-menu">Gelamai</span>
+                <span class="hide-menu">Dodol</span>
               </a>
             </li>
             <li class="sidebar-item">
@@ -151,6 +152,11 @@
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script>
+    $(".custom-file-input").on("chage", function(){
+      var fileName = $(this).val().split("\\").pop();
+      $(this).sibilings(".custom-file-label").addClass("selected").html(fileName)
+    })
   @yield('js')
 <!-- Code injected by live-server -->
 <script>
